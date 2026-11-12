@@ -53,6 +53,7 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
                   "pm.expect(pm.response.json().price).to.eql(35.5);",
@@ -60,7 +61,8 @@
                   "pm.expect(pm.response.json().brandId).to.eql(1);",
                   "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-14T00:00:00\");",
                   "pm.expect(pm.response.json().endDate).to.eql(\"2020-12-31T23:59:59\");",
-                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");",
+                  "});"
                 ]
               }
             }
@@ -111,6 +113,7 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(2);",
                   "pm.expect(pm.response.json().price).to.eql(25.45);",
@@ -118,7 +121,8 @@
                   "pm.expect(pm.response.json().brandId).to.eql(1);",
                   "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-14T15:00:00\");",
                   "pm.expect(pm.response.json().endDate).to.eql(\"2020-06-14T18:30:00\");",
-                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");",
+                  "});"
                 ]
               }
             }
@@ -169,6 +173,7 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
                   "pm.expect(pm.response.json().price).to.eql(35.5);",
@@ -176,7 +181,8 @@
                   "pm.expect(pm.response.json().brandId).to.eql(1);",
                   "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-14T00:00:00\");",
                   "pm.expect(pm.response.json().endDate).to.eql(\"2020-12-31T23:59:59\");",
-                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");",
+                  "});"
                 ]
               }
             }
@@ -227,6 +233,7 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(3);",
                   "pm.expect(pm.response.json().price).to.eql(30.5);",
@@ -234,7 +241,8 @@
                   "pm.expect(pm.response.json().brandId).to.eql(1);",
                   "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-15T00:00:00\");",
                   "pm.expect(pm.response.json().endDate).to.eql(\"2020-06-15T11:00:00\");",
-                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");",
+                  "});"
                 ]
               }
             }
@@ -285,6 +293,7 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(4);",
                   "pm.expect(pm.response.json().price).to.eql(38.95);",
@@ -292,7 +301,8 @@
                   "pm.expect(pm.response.json().brandId).to.eql(1);",
                   "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-15T16:00:00\");",
                   "pm.expect(pm.response.json().endDate).to.eql(\"2020-12-31T23:59:59\");",
-                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");",
+                  "});"
                 ]
               }
             }
@@ -348,9 +358,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
-                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "});"
                 ]
               }
             }
@@ -401,9 +413,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
-                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "});"
                 ]
               }
             }
@@ -454,9 +468,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(2);",
-                  "pm.expect(pm.response.json().price).to.eql(25.45);"
+                  "pm.expect(pm.response.json().price).to.eql(25.45);",
+                  "});"
                 ]
               }
             }
@@ -507,9 +523,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(2);",
-                  "pm.expect(pm.response.json().price).to.eql(25.45);"
+                  "pm.expect(pm.response.json().price).to.eql(25.45);",
+                  "});"
                 ]
               }
             }
@@ -560,9 +578,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
-                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "});"
                 ]
               }
             }
@@ -613,9 +633,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
-                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "});"
                 ]
               }
             }
@@ -666,9 +688,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(3);",
-                  "pm.expect(pm.response.json().price).to.eql(30.5);"
+                  "pm.expect(pm.response.json().price).to.eql(30.5);",
+                  "});"
                 ]
               }
             }
@@ -719,9 +743,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(3);",
-                  "pm.expect(pm.response.json().price).to.eql(30.5);"
+                  "pm.expect(pm.response.json().price).to.eql(30.5);",
+                  "});"
                 ]
               }
             }
@@ -772,9 +798,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
-                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "});"
                 ]
               }
             }
@@ -825,9 +853,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(1);",
-                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "});"
                 ]
               }
             }
@@ -878,9 +908,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(4);",
-                  "pm.expect(pm.response.json().price).to.eql(38.95);"
+                  "pm.expect(pm.response.json().price).to.eql(38.95);",
+                  "});"
                 ]
               }
             }
@@ -931,9 +963,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(200);",
                   "pm.expect(pm.response.json().priceList).to.eql(4);",
-                  "pm.expect(pm.response.json().price).to.eql(38.95);"
+                  "pm.expect(pm.response.json().price).to.eql(38.95);",
+                  "});"
                 ]
               }
             }
@@ -989,9 +1023,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(404);",
                   "pm.expect(pm.response.json().status).to.eql(404);",
-                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");",
+                  "});"
                 ]
               }
             }
@@ -1042,9 +1078,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(404);",
                   "pm.expect(pm.response.json().status).to.eql(404);",
-                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");",
+                  "});"
                 ]
               }
             }
@@ -1095,9 +1133,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(404);",
                   "pm.expect(pm.response.json().status).to.eql(404);",
-                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");",
+                  "});"
                 ]
               }
             }
@@ -1148,9 +1188,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(404);",
                   "pm.expect(pm.response.json().status).to.eql(404);",
-                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");",
+                  "});"
                 ]
               }
             }
@@ -1201,9 +1243,11 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(404);",
                   "pm.expect(pm.response.json().status).to.eql(404);",
-                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");",
+                  "});"
                 ]
               }
             }
@@ -1259,8 +1303,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1311,8 +1357,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1363,8 +1411,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1415,8 +1465,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1467,8 +1519,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1519,8 +1573,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1571,8 +1627,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1623,8 +1681,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1675,8 +1735,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1727,8 +1789,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1779,8 +1843,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1831,8 +1897,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1888,8 +1956,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1940,8 +2010,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -1992,8 +2064,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -2044,8 +2118,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -2096,8 +2172,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -2148,8 +2226,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -2201,8 +2281,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -2249,8 +2331,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
@@ -2297,8 +2381,10 @@
                 "packages": {},
                 "requests": {},
                 "exec": [
+                  "pm.test(\"Response matches expected result\", function () {",
                   "pm.expect(pm.response.code).to.equal(400);",
-                  "pm.expect(pm.response.json().status).to.eql(400);"
+                  "pm.expect(pm.response.json().status).to.eql(400);",
+                  "});"
                 ]
               }
             }
