@@ -1,0 +1,46 @@
+# 🔧 Embedded server configuration
+server:
+  port: ${SERVER_PORT}
+
+# 🌱 Main Spring Boot configuration
+spring:
+  application:
+    name: pricing-service
+
+  profiles:
+    active: ${PROFILES_ACTIVE:dev}
+
+  datasource:
+    url: ${DATABASE_URL}
+    username: ${DATABASE_USERNAME}
+    password: ${DATABASE_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+# 📖 OpenAPI documentation and Swagger UI
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    url: /openapi/prices-api.yml
+
+# ❤️ Health checks and monitoring
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+# 📋 Logging levels
+logging:
+  level:
+    root: ${LOG_LEVEL_ROOT}
+    com.inditex.pricing: ${LOG_LEVEL_APP}

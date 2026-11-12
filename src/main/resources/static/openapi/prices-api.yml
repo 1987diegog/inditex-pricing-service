@@ -1,0 +1,252 @@
+openapi: 3.0.3
+
+info:
+  title: Pricing Service API
+  version: 1.0.0
+  description: |
+    REST API responsible for resolving the applicable price for a product
+    and brand at a specific application date.
+
+    A price is applicable when the requested date is between its start and
+    end dates, including both boundaries.
+
+    When multiple price lists are applicable for the same product, brand
+    and date, the entry with the highest numeric priority is returned.
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+tags:
+  - name: Prices
+    description: Operations for resolving product prices.
+
+paths:
+  /api/v1/prices:
+    get:
+      tags:
+        - Prices
+      summary: Resolve the applicable product price
+      description: |
+        Returns the single price applicable to a product and brand at the
+        requested date and time.
+        
+        The operation performs the following steps:
+        
+        1. Filters price records by product and brand.
+        2. Selects records whose validity period contains `applicationDate`.
+        3. If multiple records match, selects the one with the highest priority.
+        4. Returns the applicable price-list identifier, validity period,
+        final price and currency.
+        
+        Start and end dates are considered inclusive.
+        The operation assumes that there are no conflicting applicable records with the same highest priority but different price information.
+      operationId: getApplicablePrice
+
+      parameters:
+        - name: applicationDate
+          in: query
+          required: true
+          description: |
+            Local date and time at which the price must be applicable.
+            Format: yyyy-MM-dd'T'HH:mm:ss.
+            Time zones and UTC offsets are not accepted.
+          schema:
+            type: string
+            minLength: 19
+            maxLength: 19
+            pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}$'
+          example: '2020-06-14T16:00:00'
+
+        - name: productId
+          in: query
+          required: true
+          description: Unique identifier of the product.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+          example: 35455
+
+        - name: brandId
+          in: query
+          required: true
+          description: |
+            Unique identifier of the commercial brand.
+            Brand `1` represents ZARA.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+          example: 1
+
+      responses:
+        '200':
+          description: Applicable price successfully resolved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApplicablePriceResponse'
+              example:
+                productId: 35455
+                brandId: 1
+                priceList: 2
+                startDate: '2020-06-14T15:00:00'
+                endDate: '2020-06-14T18:30:00'
+                price: 25.45
+                currency: EUR
+
+        '400':
+          description: |
+            The request contains missing, malformed or invalid parameters.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetail'
+              example:
+                type: about:blank
+                title: Bad Request
+                status: 400
+                detail: The request contains invalid parameters
+                instance: /api/v1/prices
+
+        '404':
+          description: |
+            No applicable price exists for the supplied product, brand and
+            application date.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetail'
+              example:
+                type: about:blank
+                title: Applicable price not found
+                status: 404
+                detail: No applicable price was found
+                instance: /api/v1/prices
+
+        '500':
+          description: |
+            An unexpected error occurred while processing the request.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetail'
+              example:
+                type: about:blank
+                title: Internal server error
+                status: 500
+                detail: An unexpected error occurred
+                instance: /api/v1/prices
+
+components:
+  schemas:
+    ApplicablePriceResponse:
+      type: object
+      description: Applicable product price resolved by the service.
+      required:
+        - productId
+        - brandId
+        - priceList
+        - startDate
+        - endDate
+        - price
+        - currency
+      properties:
+        productId:
+          type: integer
+          format: int64
+          description: Unique identifier of the product.
+          example: 35455
+
+        brandId:
+          type: integer
+          format: int64
+          description: Unique identifier of the brand.
+          example: 1
+
+        priceList:
+          type: integer
+          format: int32
+          minimum: 1
+          description: Identifier of the applicable price list.
+          example: 2
+
+        startDate:
+          type: string
+          minLength: 19
+          maxLength: 19
+          pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}$'
+          description: |
+            Start of the price validity period, inclusive.
+            Local date and time without time zone or UTC offset.
+          example: '2020-06-14T15:00:00'
+
+        endDate:
+          type: string
+          minLength: 19
+          maxLength: 19
+          pattern: '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}$'
+          description: |
+            End of the price validity period, inclusive.
+            Local date and time without time zone or UTC offset.
+          example: '2020-06-14T18:30:00'
+
+        price:
+          type: number
+          minimum: 0
+          multipleOf: 0.01
+          description: Final selling price applied to the product.
+          example: 25.45
+
+        currency:
+          type: string
+          minLength: 3
+          maxLength: 3
+          pattern: '^[A-Z]{3}$'
+          description: ISO 4217 three-letter currency code.
+          example: EUR
+
+    ProblemDetail:
+      type: object
+      description: |
+        Standard error response based on RFC 9457.
+      required:
+        - type
+        - title
+        - status
+        - detail
+        - instance
+      properties:
+        type:
+          type: string
+          format: uri
+          description: |
+            URI identifying the type of problem. `about:blank` indicates
+            that the HTTP status describes the problem.
+          example: about:blank
+
+        title:
+          type: string
+          description: Short, human-readable summary of the problem.
+          example: Applicable price not found
+
+        status:
+          type: integer
+          format: int32
+          minimum: 100
+          maximum: 599
+          description: HTTP status code associated with the problem.
+          example: 404
+
+        detail:
+          type: string
+          description: Human-readable explanation specific to this occurrence.
+          example: No applicable price was found
+
+        instance:
+          type: string
+          description: URI reference identifying the request that caused the problem.
+          example: /api/v1/prices
+
+      additionalProperties: true

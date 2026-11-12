@@ -1,0 +1,2317 @@
+{
+  "info": {
+    "name": "Inditex Pricing Service - Full Acceptance Test Suite - 1",
+    "description": null,
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Successful price resolution",
+      "item": [
+        {
+          "name": "Success 1 - June 14 at 10:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "pm.expect(pm.response.json().productId).to.eql(35455);",
+                  "pm.expect(pm.response.json().brandId).to.eql(1);",
+                  "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-14T00:00:00\");",
+                  "pm.expect(pm.response.json().endDate).to.eql(\"2020-12-31T23:59:59\");",
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Success 2 - June 14 at 16:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T16:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T16:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(2);",
+                  "pm.expect(pm.response.json().price).to.eql(25.45);",
+                  "pm.expect(pm.response.json().productId).to.eql(35455);",
+                  "pm.expect(pm.response.json().brandId).to.eql(1);",
+                  "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-14T15:00:00\");",
+                  "pm.expect(pm.response.json().endDate).to.eql(\"2020-06-14T18:30:00\");",
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Success 3 - June 14 at 21:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T21:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T21:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);",
+                  "pm.expect(pm.response.json().productId).to.eql(35455);",
+                  "pm.expect(pm.response.json().brandId).to.eql(1);",
+                  "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-14T00:00:00\");",
+                  "pm.expect(pm.response.json().endDate).to.eql(\"2020-12-31T23:59:59\");",
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Success 4 - June 15 at 10:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-15T10:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-15T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(3);",
+                  "pm.expect(pm.response.json().price).to.eql(30.5);",
+                  "pm.expect(pm.response.json().productId).to.eql(35455);",
+                  "pm.expect(pm.response.json().brandId).to.eql(1);",
+                  "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-15T00:00:00\");",
+                  "pm.expect(pm.response.json().endDate).to.eql(\"2020-06-15T11:00:00\");",
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Success 5 - June 16 at 21:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-16T21:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-16T21:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(4);",
+                  "pm.expect(pm.response.json().price).to.eql(38.95);",
+                  "pm.expect(pm.response.json().productId).to.eql(35455);",
+                  "pm.expect(pm.response.json().brandId).to.eql(1);",
+                  "pm.expect(pm.response.json().startDate).to.eql(\"2020-06-15T16:00:00\");",
+                  "pm.expect(pm.response.json().endDate).to.eql(\"2020-12-31T23:59:59\");",
+                  "pm.expect(pm.response.json().currency).to.eql(\"EUR\");"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Date boundaries",
+      "item": [
+        {
+          "name": "Boundary 1 - 2020-06-14T00:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T00:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T00:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 2 - 2020-06-14T14:59:59",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T14:59:59&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T14:59:59"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 3 - 2020-06-14T15:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T15:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T15:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(2);",
+                  "pm.expect(pm.response.json().price).to.eql(25.45);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 4 - 2020-06-14T18:30:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T18:30:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T18:30:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(2);",
+                  "pm.expect(pm.response.json().price).to.eql(25.45);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 5 - 2020-06-14T18:30:01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T18:30:01&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T18:30:01"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 6 - 2020-06-14T23:59:59",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T23:59:59&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T23:59:59"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 7 - 2020-06-15T00:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-15T00:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-15T00:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(3);",
+                  "pm.expect(pm.response.json().price).to.eql(30.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 8 - 2020-06-15T11:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-15T11:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-15T11:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(3);",
+                  "pm.expect(pm.response.json().price).to.eql(30.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 9 - 2020-06-15T11:00:01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-15T11:00:01&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-15T11:00:01"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 10 - 2020-06-15T15:59:59",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-15T15:59:59&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-15T15:59:59"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(1);",
+                  "pm.expect(pm.response.json().price).to.eql(35.5);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 11 - 2020-06-15T16:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-15T16:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-15T16:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(4);",
+                  "pm.expect(pm.response.json().price).to.eql(38.95);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Boundary 12 - 2020-12-31T23:59:59",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-12-31T23:59:59&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-12-31T23:59:59"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(200);",
+                  "pm.expect(pm.response.json().priceList).to.eql(4);",
+                  "pm.expect(pm.response.json().price).to.eql(38.95);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "No applicable price",
+      "item": [
+        {
+          "name": "Not found 1 - Future date",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2026-09-01T10:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2026-09-01T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(404);",
+                  "pm.expect(pm.response.json().status).to.eql(404);",
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Not found 2 - Unknown product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=99999&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "99999"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(404);",
+                  "pm.expect(pm.response.json().status).to.eql(404);",
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Not found 3 - Unknown brand",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=35455&brandId=999",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "999"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(404);",
+                  "pm.expect(pm.response.json().status).to.eql(404);",
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Not found 4 - Outside validity period at 2020-06-13T23:59:59",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-13T23:59:59&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-13T23:59:59"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(404);",
+                  "pm.expect(pm.response.json().status).to.eql(404);",
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Not found 5 - Outside validity period at 2021-01-01T00:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2021-01-01T00:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2021-01-01T00:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(404);",
+                  "pm.expect(pm.response.json().status).to.eql(404);",
+                  "pm.expect(pm.response.json().title).to.eql(\"Applicable price not found\");"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Invalid date formats",
+      "item": [
+        {
+          "name": "Invalid date 1 - invalid-date",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=invalid-date&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "invalid-date"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 2 - 2020-13-14T10:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-13-14T10:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-13-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 3 - 2020-06-14",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 4 - 14-06-2020T10:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=14-06-2020T10:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "14-06-2020T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 5 - Empty applicationDate",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": ""
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 6 - 2020-06-14T16:00:00Z",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T16:00:00Z&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T16:00:00Z"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 7 - 2020-06-14T16:00:00+02:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T16:00:00%2B02:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T16:00:00+02:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 8 - 2020-02-30T16:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-02-30T16:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-02-30T16:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 9 - 2020-06-14T24:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T24:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T24:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 10 - 2020-06-14T16:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T16:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T16:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 11 - 2020-06-14T16:00:00.123",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T16:00:00.123&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T16:00:00.123"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid date 12 - 2020-06-14 16:00:00",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14%2016:00:00&productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14 16:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Invalid identifiers",
+      "item": [
+        {
+          "name": "Invalid identifier 1 - Zero productId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=0&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "0"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid identifier 2 - Negative productId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=-1&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "-1"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid identifier 3 - Zero brandId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=35455&brandId=0",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "0"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid identifier 4 - Negative brandId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=35455&brandId=-1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "-1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid identifier 5 - Non-numeric productId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=invalid&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "invalid"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Invalid identifier 6 - Non-numeric brandId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=35455&brandId=invalid",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "invalid"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Missing required parameters",
+      "item": [
+        {
+          "name": "Missing parameter - applicationDate",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?productId=35455&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "productId",
+                  "value": "35455"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Missing parameter - productId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&brandId=1",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "brandId",
+                  "value": "1"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Missing parameter - brandId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "auth": {
+              "type": "noauth"
+            },
+            "description": "",
+            "url": {
+              "raw": "{{baseUrl}}/api/v1/prices?applicationDate=2020-06-14T10:00:00&productId=35455",
+              "protocol": "",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "prices"
+              ],
+              "query": [
+                {
+                  "key": "applicationDate",
+                  "value": "2020-06-14T10:00:00"
+                },
+                {
+                  "key": "productId",
+                  "value": "35455"
+                }
+              ],
+              "variable": []
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {},
+                "exec": [
+                  "pm.expect(pm.response.code).to.equal(400);",
+                  "pm.expect(pm.response.json().status).to.eql(400);"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8080",
+      "type": "default"
+    }
+  ]
+}

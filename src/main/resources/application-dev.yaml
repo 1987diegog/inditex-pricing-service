@@ -1,0 +1,24 @@
+# 🔧 Embedded server configuration
+server:
+  port: 8080
+
+# 🗃️ H2 database configuration for development
+spring:
+  datasource:
+    url: jdbc:h2:mem:pricingdb
+    driver-class-name: org.h2.Driver
+    username: inditex
+    password: inditex
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+
+# 📋 Logging levels
+logging:
+  level:
+    root: INFO
+    com.inditex.pricing: DEBUG
