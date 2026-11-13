@@ -1,10 +1,10 @@
 package com.inditex.pricing.infrastructure.inbound.rest;
 
+import com.inditex.pricing.domain.model.ApplicablePrice;
+import com.inditex.pricing.generated.model.ApplicablePriceResponse;
 import java.time.LocalDateTime;
 import java.util.Currency;
 import org.mapstruct.Mapper;
-import com.inditex.pricing.domain.model.ApplicablePrice;
-import com.inditex.pricing.generated.model.ApplicablePriceResponse;
 
 @Mapper(componentModel = "spring")
 interface PricesApiMapper {

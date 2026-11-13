@@ -1,8 +1,8 @@
 package com.inditex.pricing.infrastructure.outbound.persistence.jpa;
 
+import com.inditex.pricing.domain.model.ApplicablePrice;
 import java.util.Currency;
 import org.mapstruct.Mapper;
-import com.inditex.pricing.domain.model.ApplicablePrice;
 
 @Mapper(componentModel = "spring")
 interface PriceMapper {

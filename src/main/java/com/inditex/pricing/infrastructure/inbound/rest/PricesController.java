@@ -1,14 +1,14 @@
 package com.inditex.pricing.infrastructure.inbound.rest;
 
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
 import com.inditex.pricing.application.model.ApplicablePriceQuery;
 import com.inditex.pricing.application.port.inbound.FindApplicablePriceInboundPort;
 import com.inditex.pricing.domain.model.ApplicablePrice;
 import com.inditex.pricing.generated.api.PricesApi;
 import com.inditex.pricing.generated.model.ApplicablePriceResponse;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
@@ -20,8 +20,10 @@ public class PricesController implements PricesApi {
     private final PricesApiMapper mapper;
 
     @Override
-    public ResponseEntity<ApplicablePriceResponse> getApplicablePrice(String applicationDate,
-                                                                      Long productId, Long brandId) {
+    public ResponseEntity<ApplicablePriceResponse> getApplicablePrice(
+            String applicationDate,
+            Long productId,
+            Long brandId) {
 
         log.debug("Resolving applicable price: productId={}, brandId={}, applicationDate={}",
                 productId, brandId, applicationDate);
@@ -34,7 +36,9 @@ public class PricesController implements PricesApi {
         ApplicablePriceResponse response = mapper.toResponse(applicablePrice);
 
         log.debug("Applicable price resolved: productId={}, brandId={}, priceList={}",
-                applicablePrice.productId(), applicablePrice.brandId(), applicablePrice.priceList());
+                applicablePrice.productId(),
+                applicablePrice.brandId(),
+                applicablePrice.priceList());
 
         return ResponseEntity.ok(response);
     }

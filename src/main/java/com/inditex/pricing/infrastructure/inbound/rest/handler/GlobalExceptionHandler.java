@@ -1,5 +1,9 @@
 package com.inditex.pricing.infrastructure.inbound.rest.handler;
 
+import com.inditex.pricing.application.exception.ApplicablePriceNotFoundException;
+import jakarta.annotation.Nullable;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.validation.ConstraintViolationException;
 import java.net.URI;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
@@ -13,10 +17,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.context.request.ServletWebRequest;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-import com.inditex.pricing.application.exception.ApplicablePriceNotFoundException;
-import jakarta.annotation.Nullable;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.validation.ConstraintViolationException;
 
 @Slf4j
 @RestControllerAdvice
@@ -26,16 +26,19 @@ class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private static final String INVALID_REQUEST_PARAMETERS_TITLE = "Invalid request parameters";
     private static final String INTERNAL_SERVER_ERROR_TITLE = "Internal server error";
     public static final String AN_UNEXPECTED_ERROR_OCCURRED_DETAIL = "An unexpected error occurred";
-    public static final String REQUEST_PARAMETERS_ARE_INVALID_DETAIL = "One or more request parameters are invalid";
+    public static final String REQUEST_PARAMETERS_ARE_INVALID_DETAIL =
+            "One or more request parameters are invalid";
 
     @ExceptionHandler(ApplicablePriceNotFoundException.class)
-    ResponseEntity<ProblemDetail> handleApplicablePriceNotFound(ApplicablePriceNotFoundException exception,
-                                                                HttpServletRequest request) {
+    ResponseEntity<ProblemDetail> handleApplicablePriceNotFound(
+            ApplicablePriceNotFoundException exception,
+            HttpServletRequest request) {
 
         log.info("Applicable price not found: path={}, message={}",
                 request.getRequestURI(), exception.getMessage());
 
-        var problem = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, exception.getMessage());
+        var problem = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND,
+                exception.getMessage());
 
         problem.setTitle(APPLICABLE_PRICE_NOT_FOUND_TITLE);
         problem.setInstance(URI.create(request.getRequestURI()));
@@ -46,7 +49,9 @@ class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(ConstraintViolationException.class)
-    ResponseEntity<Object> handleConstraintViolation(ConstraintViolationException exception, HttpServletRequest request) {
+    ResponseEntity<Object> handleConstraintViolation(
+            ConstraintViolationException exception,
+            HttpServletRequest request) {
 
         log.warn("Request constraint violation: path={}, violations={}",
                 request.getRequestURI(), exception.getConstraintViolations());
@@ -64,7 +69,9 @@ class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(Exception.class)
-    ResponseEntity<ProblemDetail> handleUnexpectedException(Exception exception, HttpServletRequest request) {
+    ResponseEntity<ProblemDetail> handleUnexpectedException(
+            Exception exception,
+            HttpServletRequest request) {
 
         log.error("Unexpected error processing path={}",
                 request.getRequestURI(), exception);
@@ -82,9 +89,12 @@ class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
 
     @Override
-    protected ResponseEntity<Object> handleExceptionInternal(Exception exception, @Nullable Object body,
-                                                             HttpHeaders headers, HttpStatusCode status,
-                                                             WebRequest request) {
+    protected ResponseEntity<Object> handleExceptionInternal(
+            Exception exception,
+            @Nullable Object body,
+            HttpHeaders headers,
+            HttpStatusCode status,
+            WebRequest request) {
 
         var servletRequest = ((ServletWebRequest) request).getRequest();
 

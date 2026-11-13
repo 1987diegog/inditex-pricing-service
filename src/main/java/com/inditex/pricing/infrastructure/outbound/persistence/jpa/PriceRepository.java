@@ -1,13 +1,12 @@
 package com.inditex.pricing.infrastructure.outbound.persistence.jpa;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 interface PriceRepository extends JpaRepository<PriceEntity, Long> {
 
-    List<PriceEntity>
-    findByBrandIdAndProductIdAndStartDateLessThanEqualAndEndDateGreaterThanEqual(
+    Optional<PriceEntity> findFirstByBrandIdAndProductIdAndStartDateLessThanEqualAndEndDateGreaterThanEqualOrderByPriorityDesc(
             Long brandId,
             Long productId,
             LocalDateTime applicationDateForStart,

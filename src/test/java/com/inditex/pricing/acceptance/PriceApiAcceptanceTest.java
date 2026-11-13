@@ -1,5 +1,11 @@
 package com.inditex.pricing.acceptance;
 
+import static com.inditex.pricing.PriceTestData.BRAND_ID_STR;
+import static com.inditex.pricing.PriceTestData.PRODUCT_ID_STR;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,11 +16,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
-import static com.inditex.pricing.PriceTestData.BRAND_ID_STR;
-import static com.inditex.pricing.PriceTestData.PRODUCT_ID_STR;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -31,10 +32,12 @@ class PriceApiAcceptanceTest {
 
     @ParameterizedTest(name = "[{index}] date={0} -> priceList={1}, price={2}")
     @MethodSource("requiredScenarios")
-    void shouldResolveTheFivePricesRequiredByTheExercise(String applicationDate, int expectedPriceList,
-                                                         double expectedPrice,
-                                                         String expectedStartDate,
-                                                         String expectedEndDate) throws Exception {
+    void shouldResolveTheFivePricesRequiredByTheExercise(
+            String applicationDate,
+            int expectedPriceList,
+            double expectedPrice,
+            String expectedStartDate,
+            String expectedEndDate) throws Exception {
 
         mockMvc.perform(get(PATH_URL)
                         .param(PARAM_APPLICATION_DATE, applicationDate)
@@ -93,7 +96,8 @@ class PriceApiAcceptanceTest {
 
     @ParameterizedTest(name = "[{index}] invalid applicationDate={0}")
     @MethodSource("invalidApplicationDates")
-    void shouldReturnBadRequestWhenApplicationDateIsInvalid(String applicationDate) throws Exception {
+    void shouldReturnBadRequestWhenApplicationDateIsInvalid(
+            String applicationDate) throws Exception {
 
         mockMvc.perform(get(PATH_URL)
                         .param(PARAM_APPLICATION_DATE, applicationDate)
@@ -129,7 +133,9 @@ class PriceApiAcceptanceTest {
 
     @ParameterizedTest(name = "[{index}] productId={0}, brandId={1} should return -> 400")
     @MethodSource("invalidIdentifiers")
-    void shouldReturnBadRequestWhenAnIdentifierIsInvalid(String productId, String brandId) throws Exception {
+    void shouldReturnBadRequestWhenAnIdentifierIsInvalid(
+            String productId,
+            String brandId) throws Exception {
 
         mockMvc.perform(get(PATH_URL)
                         .param(PARAM_APPLICATION_DATE, "2020-06-14T10:00:00")
@@ -154,9 +160,12 @@ class PriceApiAcceptanceTest {
 
     @ParameterizedTest(name = "Missing required parameter: {0}")
     @MethodSource("requestsWithMissingParameter")
-    void shouldReturnBadRequestWhenARequiredParameterIsMissing(String missingParameter,
-                                                               String nameParam1, String param1,
-                                                               String nameParam2, String param2) throws Exception {
+    void shouldReturnBadRequestWhenARequiredParameterIsMissing(
+            String missingParameter,
+            String nameParam1,
+            String param1,
+            String nameParam2,
+            String param2) throws Exception {
         MockHttpServletRequestBuilder request = get(PATH_URL);
         request.param(nameParam1, param1);
         request.param(nameParam2, param2);

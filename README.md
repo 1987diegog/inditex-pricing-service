@@ -6,6 +6,18 @@ overlap, the entry with the highest numeric priority wins.
 This repository implements the Inditex backend technical exercise using API First and hexagonal architecture,
 with unit tests, persistence integration tests and REST endpoint acceptance tests.
 
+## Technologies
+
+- **Java 25 and Spring Boot:** application development, configuration and dependency injection.
+- **Spring MVC and Bean Validation:** REST API and input validation.
+- **Spring Data JPA:** database access and applicable-price selection.
+- **H2 and Flyway:** in-memory database with versioned schema creation and initial data.
+- **OpenAPI Generator and Swagger UI:** API First development, interface and model generation, and interactive documentation.
+- **MapStruct and Lombok:** object mapping and reduction of repetitive code.
+- **JUnit 5, Mockito and MockMvc:** unit, persistence integration and REST acceptance tests.
+- **Maven Wrapper and Docker:** reproducible builds and containerized execution.
+- **Postman and Actuator:** API verification and application health checks.
+
 ## Requirements
 
 To build and run the application locally:
@@ -90,7 +102,7 @@ including the identifiers, validity dates, price list, final price and currency 
 | 2020-06-16 21:00:00 | 4          | 38.95       |
 
 Additional tests cover inclusive date boundaries, invalid or missing parameters, queries without an applicable price,
-and highest-priority selection regardless of candidate order.
+and highest-priority selection in the database.
 
 ## Profiles
 
@@ -124,8 +136,22 @@ docker rm pricing-service
 
 ## Architecture
 
-The service follows hexagonal architecture, separating application use cases, domain models,
-and REST and persistence adapters.
+The service follows **hexagonal architecture**, separating three areas:
+
+- **Domain:** represents pricing concepts independently of HTTP and persistence frameworks.
+- **Application:** defines the lookup use case and the inbound and outbound ports that connect it to external adapters.
+- **Infrastructure:** implements the REST and persistence adapters, including request validation, response mapping, error handling and database access.
+
+Adapters depend on application contracts, keeping the application independent of their concrete implementations.
+The domain has no dependencies on Spring, JPA or generated API models.
+
+The API follows an **API First** approach: its OpenAPI contract generates the REST interfaces and response models.
+Persistence uses Spring Data JPA to filter applicable prices and retrieve only the highest-priority match.
+Flyway initializes the H2 database on startup.
+
+```text
+REST adapter → Application use case → Persistence port → JPA adapter → H2
+```
 
 ## Database
 
